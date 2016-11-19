@@ -1,62 +1,68 @@
 require('../css/mulu');
 
-; (function ($) {
-    let defaults = {
+; (function($) {
 
-    };
-
-    $.mulu = function (options) {
-
-        let opt = $.extends({}, defaults, options);
+    $.mulu = function(list) {
+        fillDom(list);
+        bindEvents();
     };
 
 
-    function fillDom(opt) {
+    function fillDom(list) {
         // 唯一性
-        $(".mulu-wrap").remove();
+        $("#muluWrap").remove();
 
         // 填充dom
         let wrap = `
-    <div class="mulu-wrap">
+    <div id="muluWrap" class="mulu-wrap">
         <div class="mulu-tag">
             <div class="mulu-title">目</div>
             <div class="mulu-title">录</div>
         </div>
-        <div class="mulu-list mulu-list-open">
-            <a class="mulu-list-title">一、项目管理</a>
-            <a class="mulu-list-item">项目</a>
-            <a class="mulu-list-item">我的任务</a>
-            <a class="mulu-list-item">填写项目周报</a>
-            <a class="mulu-list-item">历史项目周报</a>
-        </div>
-        <div class="mulu-list mulu-list-open">
-            <a class="mulu-list-title">二、数据统计</a>
-            <a class="mulu-list-item">项目</a>
-            <a class="mulu-list-item">我的任务</a>
-        </div>
-        <div class="mulu-list">
-            <a class="mulu-list-title">三、人事管理</a>
-            <a class="mulu-list-item">项目</a>
-            <a class="mulu-list-item">我的任务</a>
-            <a class="mulu-list-item">填写项目周报</a>
-            <a class="mulu-list-item">历史项目周报</a>
-        </div>
-        <div class="mulu-list">
-            <div class="mulu-list-title">四、基础管理</div>
-            <a class="mulu-list-item">项目</a>
-            <a class="mulu-list-item">我的任务</a>
-            <a class="mulu-list-item">填写项目周报</a>
-            <a class="mulu-list-item">历史项目周报</a>
-        </div>
-
+        ${getMenus(list)}
     </div>`;
+
+        $('body').append(wrap);
     }
 
     function getMenus(opts) {
         let result = '';
 
         $.each(opts, (index, item) => {
-            let opt = $.extend({}, defaults, item); // 当前项配置 
+            let opt = $.extend({}, {
+                title: '',
+                opened: true,
+                blank: false,
+                url: 'javascript:void(0)'
+            }, item); // 当前项配置 
+
+            let openClass = opt.opened ? 'mulu-list-open' : '';
+
+            let listContent = opt.list.map(n => `<a href="${n.url}" ${n.blank ? 'target="_blank"' : ''} class="mulu-list-item">${n.title}</a>`).join('');
+
+            let template = `
+        <div class="mulu-list ${openClass}">
+            <a class="mulu-list-title">${opt.title}</a>
+            ${listContent}
+        </div>`;
+
+            result += template;
+        });
+        return result;
+    }
+
+    function bindEvents() {
+        let wrap = $("#muluWrap");
+        let tag = wrap.children('.mulu-tag');
+        let titles = wrap.find(".mulu-list-title");
+
+
+        tag.click(function() {
+            wrap.toggleClass('mulu-hidden');
+        });
+
+        titles.click(function() {
+            $(this).parent().toggleClass('mulu-list-open');
         });
     }
 })(jQuery);

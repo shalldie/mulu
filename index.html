@@ -3,46 +3,81 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>简易博客目录</title>
 </head>
 
 <body>
-
-    <div class="mulu-wrap">
-        <div class="mulu-tag">
-            <div class="mulu-title">目</div>
-            <div class="mulu-title">录</div>
-        </div>
-        <div class="mulu-list mulu-list-open">
-            <a class="mulu-list-title">一、项目管理</a>
-            <a class="mulu-list-item">项目</a>
-            <a class="mulu-list-item">我的任务</a>
-            <a class="mulu-list-item">填写项目周报</a>
-            <a class="mulu-list-item">历史项目周报</a>
-        </div>
-        <div class="mulu-list mulu-list-open">
-            <a class="mulu-list-title">二、数据统计</a>
-            <a class="mulu-list-item">项目</a>
-            <a class="mulu-list-item">我的任务</a>
-        </div>
-        <div class="mulu-list">
-            <a class="mulu-list-title">三、人事管理</a>
-            <a class="mulu-list-item">项目</a>
-            <a class="mulu-list-item">我的任务</a>
-            <a class="mulu-list-item">填写项目周报</a>
-            <a class="mulu-list-item">历史项目周报</a>
-        </div>
-        <div class="mulu-list">
-            <div class="mulu-list-title">四、基础管理</div>
-            <a class="mulu-list-item">项目</a>
-            <a class="mulu-list-item">我的任务</a>
-            <a class="mulu-list-item">填写项目周报</a>
-            <a class="mulu-list-item">历史项目周报</a>
-        </div>
-
-    </div>
-
+    <script src="src/lib/jquery.js"></script>
     <script src="dist/mulu.js"></script>
+    <script>
+    $.mulu([
+        {
+            title:'Github',
+            opened:true,
+            list:[{
+                title:'Fork me on Github',
+                blank:true,
+                url:'https://github.com/shalldie'
+            }]
+        },
+        {
+            title:'一、项目管理',
+            opened:true,
+            list:[{
+                title:'项目',
+                url:'#'
+            },{
+                title:'我的任务',
+                url:'#'
+            },{
+                title:'填写项目周报',
+                url:'#'
+            },{
+                title:'历史项目周报',
+                url:'#'
+            }]
+        },
+        {
+            title:'二、数据统计',
+            opened:false,
+            list:[{
+                title:'我的任务',
+                url:'#'
+            },{
+                title:'填写项目周报',
+                url:'#'
+            }]
+        },
+        {
+            title:'三、人事管理',
+            opened:false,
+            list:[{
+                title:'我的任务',
+                url:'#'
+            },{
+                title:'历史项目周报',
+                url:'#'
+            }]
+        },
+        {
+            title:'四、基础管理',
+            opened:false,
+            list:[{
+                title:'项目',
+                url:'#'
+            },{
+                title:'我的任务',
+                url:'#'
+            },{
+                title:'填写项目周报',
+                url:'#'
+            },{
+                title:'历史项目周报',
+                url:'#'
+            }]
+        }
+    ]);
+    </script>
 </body>
 
 </html>
