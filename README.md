@@ -3,6 +3,8 @@
 
 ## 看起来是这个样子的
 
+[点击查看 Demo](https://shalldie.github.io/demos/mulu/index.html)
+
 ![](img/lookslike.png)
 
 # 用法
