@@ -1,10 +1,17 @@
 require('../css/mulu');
 
-; (function($) {
+; (function ($) {
 
-    $.mulu = function(list) {
+    $.mulu = function (list) {
         fillDom(list);
         bindEvents();
+
+        return {
+            show: show,
+            hide: hide,
+            toggle: toggle,
+            remove: remove
+        };
     };
 
 
@@ -57,12 +64,32 @@ require('../css/mulu');
         let titles = wrap.find(".mulu-list-title");
 
 
-        tag.click(function() {
+        tag.click(function () {
             wrap.toggleClass('mulu-hidden');
         });
 
-        titles.click(function() {
+        titles.click(function () {
             $(this).parent().toggleClass('mulu-list-open');
         });
+    }
+
+    function show() {
+        $("#muluWrap").removeClass('mulu-hidden');
+        return this;
+    }
+
+    function hide() {
+        $("#muluWrap").addClass('mulu-hidden');
+        return this;
+    }
+
+    function toggle() {
+        $("#muluWrap").toggleClass('mulu-hidden');
+        return this;
+    }
+
+    function remove() {
+        $("#muluWrap").remove();
+        return this;
     }
 })(jQuery);

@@ -10,73 +10,73 @@
     <script src="src/lib/jquery.js"></script>
     <script src="dist/mulu.js"></script>
     <script>
-    $.mulu([
-        {
-            title:'Github',   // 标题
-            opened:true,      // 目录是否打开，默认true
-            list:[{           // 子项二级菜单
-                title:'Fork me on Github',   // 子项标题
-                blank:true,                  // 新窗口打开，默认false
-                url:'https://github.com/shalldie/mulu' // 链接地址，一般接 #hash 作为页面内导航
-            }]
-        },
-        {
-            title:'一、项目管理',
-            opened:true,
-            list:[{
-                title:'项目',
-                url:'#'
-            },{
-                title:'我的任务',
-                url:'#'
-            },{
-                title:'填写项目周报',
-                url:'#'
-            },{
-                title:'历史项目周报',
-                url:'#'
-            }]
-        },
-        {
-            title:'二、数据统计',
-            opened:false,
-            list:[{
-                title:'我的任务',
-                url:'#'
-            },{
-                title:'填写项目周报',
-                url:'#'
-            }]
-        },
-        {
-            title:'三、人事管理',
-            opened:false,
-            list:[{
-                title:'我的任务',
-                url:'#'
-            },{
-                title:'历史项目周报',
-                url:'#'
-            }]
-        },
-        {
-            title:'四、基础管理',
-            opened:false,
-            list:[{
-                title:'项目',
-                url:'#'
-            },{
-                title:'我的任务',
-                url:'#'
-            },{
-                title:'填写项目周报',
-                url:'#'
-            },{
-                title:'历史项目周报',
-                url:'#'
-            }]
-        }
-    ]);
+        var mulu = $.mulu([
+            {
+                title: 'Github',   // 标题
+                opened: true,      // 目录是否打开，默认true
+                list: [{           // 子项二级菜单
+                    title: 'Fork me on Github',   // 子项标题
+                    blank: true,                  // 新窗口打开，默认false
+                    url: 'https://github.com/shalldie/mulu' // 链接地址，一般接 #hash 作为页面内导航
+                }]
+            },
+            {
+                title: '一、项目管理',
+                opened: true,
+                list: [{
+                    title: '项目',
+                    url: '#'
+                }, {
+                    title: '我的任务',
+                    url: '#'
+                }, {
+                    title: '填写项目周报',
+                    url: '#'
+                }, {
+                    title: '历史项目周报',
+                    url: '#'
+                }]
+            },
+            {
+                title: '二、数据统计',
+                opened: false,
+                list: [{
+                    title: '我的任务',
+                    url: '#'
+                }, {
+                    title: '填写项目周报',
+                    url: '#'
+                }]
+            },
+            {
+                title: '三、人事管理',
+                opened: false,
+                list: [{
+                    title: '我的任务',
+                    url: '#'
+                }, {
+                    title: '历史项目周报',
+                    url: '#'
+                }]
+            },
+            {
+                title: '四、基础管理',
+                opened: false,
+                list: [{
+                    title: '项目',
+                    url: '#'
+                }, {
+                    title: '我的任务',
+                    url: '#'
+                }, {
+                    title: '填写项目周报',
+                    url: '#'
+                }, {
+                    title: '历史项目周报',
+                    url: '#'
+                }]
+            }
+        ]).hide();
     </script>
 </body>
 
